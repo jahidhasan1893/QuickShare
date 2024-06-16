@@ -1,6 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const cron = require('node-cron');
+const File = require('../models/file')
 
 const folderPath = path.join(__dirname, '/../uploads');
 
@@ -22,6 +23,9 @@ const updateStorage = (req, res, next) => {
         if (ageInDays > 1) {
           try {
             await fs.remove(filePath);
+            await File.deleteOne({
+                path: filePath
+            })
             console.log('Deleted file:', filePath);
           } catch (err) {
             console.error('Error deleting file:', err);
