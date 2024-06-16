@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=bb, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <form action="/files/download/<%= uuid %>" method="GET">
-        <button type="submit">Download File</button>
-    </form>
+    <div class="left">
+        <div class="download-container">
+            <img src="/images/download_icon.png" alt="">
+            <form action="/files/download/<%= uuid %>" method="GET">
+                <button type="submit">Download File</button>
+            </form>
+           </div>
+    </div>
+
+    <div class="right">
+        <img src="/images/bg.jpg" alt="">
+    </div>
    
 </body>
 </html>

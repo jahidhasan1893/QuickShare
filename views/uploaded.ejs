@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
 
-<head></head>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 
 <body>
-    <h3>Paste link to download</h3>
-    <p> ("<%= file %>") </p>
-    <br />
-
-    <button onclick="copyText()">Copy</button>
-    <br />
-
+    <div class="left">
+        <div class="container">
+            <h3>Paste link to download</h3>
     
+            <div class="link">
+                <p> <%= file %> </p>
+    
+                <button onclick="copyText()">Copy</button>
+            </div>
+    
+        </div>
+    </div>
+
+    <div class="right">
+        <img src="/images/bg.jpg" alt="">
+    </div>
+    
+
+
+
     <script>
         function copyText() {
 
