@@ -76,6 +76,18 @@ h3 {
     margin-bottom: 20px;
 }
 
+h4 {
+    color: #333738;
+    opacity: 80%;
+    margin-bottom: 20px;
+}
+
+i {
+    color: #d44833;
+    font-size: large;
+    margin-right: 10px;
+}
+
 input[type="file"] {
     width: 400px;
     display: block;
