@@ -61,38 +61,6 @@ router.post('/',(req,res)=>{
 
 
 
-router.post('/send', async (req, res)=>{
-    const { uuid, emailTo, emailFrom } = req.body;
 
-    console.log(uuid, emailTo, emailFrom);
-    if(!uuid || !emailTo || !emailFrom){
-        return res.status(422).send({ error: 'All fields are required'});
-    }
-
-    // Get data from database
-
-    const file = await File.findOne({ uuid: uuid});
-
-    
-
-    file.sender = emailFrom;
-
-    file.reciever = emailTo;
-
-    const response = await file.save();
-
-    // send email
-
-    const sendMail = require('../services/emailService');
-
-    sendMail({
-        from: emailFrom,
-        to: emailTo,
-        subject: 'QuickShare File Sharing',
-        text: `${emailFrom} shared a file with you.`,
-        hmtl: `<h1> ${process.env.APP_BASE_URL}/files/${file.uuid}<h1>`
-    })
-
-});
 
 module.exports = router;
