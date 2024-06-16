@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <h3>Paste link to download</h3>
+    <p> ("<%= file %>") </p>
+    <br />
+
+    <button onclick="copyText()">Copy</button>
+    <br />
+
+    
+    <script>
+        function copyText() {
+
+            /* Copy text into clipboard */
+            navigator.clipboard.writeText
+                ("<%= file %>");
+
+            window.alert("Text Copied!!!");
+        }
+    </script>
+</body>
+
+</html>
