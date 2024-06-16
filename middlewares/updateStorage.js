@@ -6,11 +6,10 @@ const folderPath = path.join(__dirname, '/../uploads');
 
 
 const updateStorage = (req, res, next) => {
-    console.log("hello")
 
   // schedule cron job
-  cron.schedule('0 0 0 * *', async () => {
-    console.log('Cron job started at', new Date().toLocaleString());
+  cron.schedule('0 0 * * *', async () => {
+    console.log('Files updated at', new Date().toLocaleString());
     try {
       const files = await fs.readdir(folderPath);
 
@@ -32,6 +31,9 @@ const updateStorage = (req, res, next) => {
     } catch (err) {
       console.error('Error reading directory or processing files:', err);
     }
+  },{
+    scheduled: true,
+    timezone: 'Asia/Dhaka'
   });
 
   next();
