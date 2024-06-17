@@ -24,7 +24,7 @@ const updateStorage = (req, res, next) => {
           try {
             await fs.remove(filePath);
             await File.deleteOne({
-                path: filePath
+                fileName: file
             })
             console.log('Deleted file:', filePath);
           } catch (err) {
